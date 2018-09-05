@@ -1,13 +1,13 @@
 var socket =  io();
-socket.on('connect',()=>{
+socket.on('connect',function(){
     console.log('Connected to server')
 
-    socket.emit('createMessage',{
-        from:'Bosco',
-        text:'Wow WOw'
-    })
+    // socket.emit('createMessage',{
+    //     from:'Bosco',
+    //     text:'Wow WOw'
+    // })
 
-}).on('disconnect',()=>{
+}).on('disconnect',function(){
     console.log('server Disconnected Snaggy pussy')
 })
 socket.on('newMessage',function(message){

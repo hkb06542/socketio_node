@@ -8,5 +8,14 @@
 </head>
 <body>
       <p>Welcome to Chat app</p>
+      <script src="/socket.io/socket.io.js"></script>
+      <script>
+         var socket =  io();
+         socket.on('connect',()=>{
+             console.log('Connected to server')
+         }).on('disconnect',()=>{
+             console.log('server Disconnected Snaggy pussy')
+         })
+      </script>
 </body>
 </html>

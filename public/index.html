@@ -1,14 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>SOCKET IO WORLD</title>
 </head>
+
 <body>
-      <p>Welcome to Chat app</p>
-      <script src="/socket.io/socket.io.js"></script>
-<script src="/js/script.js"></script>
+    <p>Welcome to Chat app</p>
+    <form action="" id="message_form">
+        <input type="text" name="message" id="" placeholder="please enter the message">
+        <button>send</button>
+    </form>
+    <ol id="messages"></ol>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/js/script.js"></script>
 </body>
+
 </html>

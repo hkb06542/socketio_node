@@ -1,5 +1,6 @@
 
 var server = require('./server/Server')
+var {MessageObj} = require('./server/utils/MessageObj')
 console.log('welcome to Chat Server')
 
 
@@ -9,32 +10,19 @@ var ser = server.server;
 var io = server.io;
 io.on('connection',(socket)=>{
 console.log('new user connected')
-
-// socket.emit('newMessage',{
-//     from:'hkb@gmail.com',
-//     text:'Momgol pati sex',
-//     createdAt: new Date().getMilliseconds()
-// });
+socket.broadcast.emit('newMessage',MessageObj('Admin','new User has joined'));
+socket.emit('newMessage',MessageObj('Admin','Welcome To the chat app'));
 
 socket.on('disconnect',(socket)=>{
     console.log('client disconnected')
 });
 
-socket.on('createMessage',(message)=>{
+socket.on('createMessage',(message,callback)=>{
 console.log('createMessage --> ',message)
-io.emit('newMessage',{
-      from:message.from,
-      text:message.text,
-      createdAt: new Date().getTime()
-})
+io.emit('newMessage',MessageObj(message.from,message.text));
+callback({status:'200',ack:'RECEIVED'});
 });
 
-// socket.emit('newMessage',{
-//       from:'Hemu',
-//       text:'how re you',
-//       createdAt: new Date()
-//   }
-// );
 
 });
 
